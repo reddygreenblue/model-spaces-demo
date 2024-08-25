@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { TModelSpaceInput } from "~/app/[id]/types";
+import { type TModelSpaceInput } from "~/app/[id]/types";
 
 export const generateSchema = (fields: TModelSpaceInput[]) => {
   const schemaObj = fields.reduce<Record<string, z.ZodType<any, any, any>>>(

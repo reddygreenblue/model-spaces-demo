@@ -3,7 +3,7 @@ export type TModelSpaceStore = {
   lastOutput: {
     isFetching: boolean;
     error: unknown;
-    response: Record<string, any> | null;
+    response: Record<string, unknown> | null;
   };
   timeTakenToPredict: number;
 };

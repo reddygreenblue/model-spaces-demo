@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TModelSpaceStore } from "./types";
+import { type TModelSpaceStore } from "./types";
 
 export const modelSpaceStoreInitialState: TModelSpaceStore = {
   fileInputs: {},

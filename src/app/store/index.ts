@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TModelSpacesStore } from "./types";
+import { type TModelSpacesStore } from "./types";
 
 const initialState: TModelSpacesStore = {
   searchKey: "",

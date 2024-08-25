@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import { Loader2 } from "lucide-react";
-import * as z from "zod";
+import type * as z from "zod";
 import { Button } from "~/components/ui/button";
 import {
   Form,
@@ -20,18 +20,19 @@ import { ScrollBar } from "~/components/ui/scroll-area";
 import { Separator } from "~/components/ui/separator";
 import { Skeleton } from "~/components/ui/skeleton";
 import { fileToBase64 } from "~/lib/file-to-base64";
+import {
+  inputsSelector,
+  useModelSpaceQuery,
+} from "../../hooks/useModelSpaceQuery";
+import { usePredictModelSpace } from "../../hooks/usePredictModelSpace";
+import { generateSchema } from "../../lib/generate-schema";
 import { useModelSpaceStore } from "../../store";
 import { RenderInput } from "../render-input";
-import { generateSchema } from "../../lib/generate-schema";
-import { usePredictModelSpace } from "../../hooks/usePredictModelSpace";
-import { inputsSelector, useModelSpaceQuery } from "../../hooks/useModelSpaceQuery";
 
 export default function ModelInput({ id }: { id: string }) {
   inputsSelector;
   const {
     data: formFields = [],
-    isError,
-    refetch,
     isLoading,
   } = useModelSpaceQuery({ id, select: inputsSelector });
 
@@ -54,8 +55,8 @@ export default function ModelInput({ id }: { id: string }) {
 
   const onValidSubmission = async (data: z.infer<typeof schema>) => {
     try {
-      let requestBody: Record<string, string> = {};
-      for (let key in data) {
+      const requestBody: Record<string, string> = {};
+      for (const key in data) {
         if (key in files && files[key]?.[0]) {
           requestBody[key] = await fileToBase64(files[key][0]);
         } else {

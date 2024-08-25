@@ -1,8 +1,8 @@
 "use client";
 
-import { useIsMutating, useMutationState } from "@tanstack/react-query";
 import { LoaderPinwheel } from "lucide-react";
 import Image from "next/image";
+import { useEffect } from "react";
 import ErrorComponent from "~/components/error";
 import {
   Carousel,
@@ -15,9 +15,7 @@ import { Separator } from "~/components/ui/separator";
 import { TypographyP } from "~/components/ui/typography";
 import { cn } from "~/lib/tailwind-util";
 import { isValidHttpUrl } from "~/lib/valid-url";
-import { usePredictMutationKey } from "../../hooks/usePredictModelSpace";
 import { modelSpaceStoreInitialState, useModelSpaceStore } from "../../store";
-import { useEffect } from "react";
 import { setLastOutput, setTimeTakenToPredict } from "../../store/actions";
 
 const Output = () => {

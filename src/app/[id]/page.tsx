@@ -7,7 +7,7 @@ import { TypographyH2, TypographySmall } from "~/components/ui/typography";
 import ModelInput from "./_components/model-input";
 import ModelOutput from "./_components/model-output";
 import { useModelSpaceQuery } from "./hooks/useModelSpaceQuery";
-import { TModelSpace } from "./types";
+import { type TModelSpace } from "./types";
 
 export default function ModelSpace({
   params: { id },

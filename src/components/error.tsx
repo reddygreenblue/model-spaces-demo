@@ -1,7 +1,5 @@
-import React from "react";
-import { Button } from "~/components/ui/button";
-import { useRouter } from "next/router";
 import { AlertCircleIcon } from "lucide-react";
+import { Button } from "~/components/ui/button";
 
 function ErrorComponent({ retryHandler }: { retryHandler?: () => void }) {
   return (

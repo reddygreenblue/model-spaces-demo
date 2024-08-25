@@ -1,13 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { setLastOutput, setTimeTakenToPredict } from "../store/actions";
 import { postModelSpacePredict } from "../api/postModelSpacePredict";
+import { setLastOutput, setTimeTakenToPredict } from "../store/actions";
 
 export const usePredictMutationKey = ["predicate"];
 
 export const usePredictModelSpace = ({ id }: { id: string }) => {
-  let timeTaken: number;
-
   return useMutation({
     mutationKey: usePredictMutationKey,
     mutationFn: (body: Record<string, string>) => {
@@ -28,7 +26,7 @@ export const usePredictModelSpace = ({ id }: { id: string }) => {
       setLastOutput({
         isFetching: false,
         error: null,
-        response: data,
+        response: data as Record<string, unknown>,
       });
     },
     onError: (error) => {

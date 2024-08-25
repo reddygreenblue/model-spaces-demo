@@ -1,6 +1,6 @@
-import { AxiosResponse } from "axios";
+import { type AxiosResponse } from "axios";
 import { apiClient } from "~/api/api-client";
-import { TModelSpace } from "../types";
+import { type TModelSpace } from "../types";
 
 export async function getModelSpace(id: string): Promise<TModelSpace> {
   try {

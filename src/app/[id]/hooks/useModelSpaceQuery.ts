@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { AxiosError } from "axios";
-import { TModelSpace } from "../types";
+import { type AxiosError } from "axios";
+import { type TModelSpace } from "../types";
 import { getModelSpace } from "../api/getModelSpace";
 
 export const useModelSpaceQuery = <T = TModelSpace>({

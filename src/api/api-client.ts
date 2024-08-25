@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios from "axios";
 import { env } from "~/env";
 
 export const apiClient = axios.create({
@@ -14,7 +14,7 @@ apiClient.interceptors.request.use(
     return config;
   },
   (error) => {
-    return Promise.reject(error);
+    return Promise.reject(new Error(error));
   },
 );
 
@@ -30,6 +30,6 @@ apiClient.interceptors.response.use(
     } else {
       console.error("Error setting up request:", error.message);
     }
-    return Promise.reject(error);
+    return Promise.reject(new Error(error));
   },
 );

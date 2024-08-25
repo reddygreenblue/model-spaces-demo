@@ -1,5 +1,5 @@
 import { useModelSpaceStore } from ".";
-import { TModelSpaceStore } from "./types";
+import { type TModelSpaceStore } from "./types";
 
 export const setTimeTakenToPredict = (timeTakenToPredict: number) =>
   useModelSpaceStore.setState({ timeTakenToPredict });

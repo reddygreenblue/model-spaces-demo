@@ -1,5 +1,5 @@
 import { apiClient } from "~/api/api-client";
-import { TModelSpaceDetails } from "../types";
+import { type TModelSpaceDetails } from "../types";
 
 export async function getModelSpaces(): Promise<TModelSpaceDetails[]> {
   try {

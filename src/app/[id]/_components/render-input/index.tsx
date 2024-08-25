@@ -1,9 +1,9 @@
 import React from "react";
 import { toast } from "sonner";
-import { Input, InputProps } from "~/components/ui/input";
+import { Input, type InputProps } from "~/components/ui/input";
 import { FileType, isValidFileType } from "~/lib/is-valid-file-type";
 import { setfiles } from "../../store/actions";
-import { TModelSpaceInput } from "../../types";
+import { type TModelSpaceInput } from "../../types";
 
 export const RenderInput = React.forwardRef<
   HTMLInputElement,
@@ -20,6 +20,7 @@ export const RenderInput = React.forwardRef<
         {...props}
         type={type}
         ref={ref}
+        className={className}
         onChange={(e) => {
           if (
             e.target?.files?.[0] &&
@@ -33,7 +34,7 @@ export const RenderInput = React.forwardRef<
             return;
           }
 
-          setfiles(props?.name!, e.target.files);
+          setfiles(props?.name ?? '', e.target.files);
           props?.onChange?.(e);
         }}
       />
@@ -41,3 +42,5 @@ export const RenderInput = React.forwardRef<
   }
   return <Input type={type} {...props} ref={ref} />;
 });
+
+RenderInput.displayName = "RenderInput";
