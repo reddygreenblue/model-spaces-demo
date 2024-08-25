@@ -15,7 +15,7 @@ import { useModelSpacesStore } from "../../store";
 import { SkeletonCard } from "../skeleton-cards";
 
 function ModelSpaceCards() {
-  const { data, isError, isLoading, refetch } = useModelSpacesQuery();
+  const { data = [], isError, isLoading, refetch } = useModelSpacesQuery();
   const searchKey = useModelSpacesStore((state) => state.searchKey);
 
   if (isError) {
