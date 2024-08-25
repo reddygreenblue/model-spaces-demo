@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 import axios from "axios";
 import { env } from "~/env";
 
@@ -7,4 +9,8 @@ export const apiClient = axios.create({
     Accept: "application/json",
   },
   timeout: 10000,
+});
+
+apiClient.interceptors.response.use((response) => {
+  return response.data;
 });
