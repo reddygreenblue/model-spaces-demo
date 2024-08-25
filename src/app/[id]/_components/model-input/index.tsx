@@ -30,7 +30,6 @@ import { useModelSpaceStore } from "../../store";
 import { RenderInput } from "../render-input";
 
 export default function ModelInput({ id }: { id: string }) {
-  inputsSelector;
   const {
     data: formFields = [],
     isLoading,
@@ -60,7 +59,7 @@ export default function ModelInput({ id }: { id: string }) {
         if (key in files && files[key]?.[0]) {
           requestBody[key] = await fileToBase64(files[key][0]);
         } else {
-          requestBody[key] = data[key];
+          requestBody[key] = data[key] as string;
         }
       }
       mutation.mutate(requestBody);

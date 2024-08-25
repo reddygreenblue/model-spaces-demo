@@ -1,4 +1,3 @@
-import { unknown } from "zod";
 import { apiClient } from "~/api/api-client";
 
 export const postModelSpacePredict = async (
