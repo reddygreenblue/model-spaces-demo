@@ -43,7 +43,7 @@ function ModelSpaceCards() {
 
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-      {spaces!.map((modelSpace) => (
+      {spaces.map((modelSpace) => (
         <Link href={`/${modelSpace.id}`} key={modelSpace.id}>
           <Card className="group flex h-auto transform cursor-pointer flex-col transition-transform duration-300 ease-in-out hover:shadow-xl dark:hover:shadow-gray-950 md:h-48 md:flex-row">
             {/* Image Section */}
