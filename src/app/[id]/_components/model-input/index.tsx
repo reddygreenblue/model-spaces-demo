@@ -103,7 +103,6 @@ export default function ModelInput({ id }: { id: string }) {
                       <FormControl>
                         <RenderInput
                           {...field}
-                          placeholder={formField.description}
                           fieldtype={formField.type}
                         />
                       </FormControl>

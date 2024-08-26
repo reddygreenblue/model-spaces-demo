@@ -56,7 +56,7 @@ export default function ModelSpace({
           )}
           {isLoading ? (
             <>
-              <Skeleton className="h-4 w-96 sm:h-5" />
+              <Skeleton className="h-4 w-[25vw] sm:h-5" />
               <Skeleton className="h-4 w-[50vw] sm:h-5" />
             </>
           ) : (

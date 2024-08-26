@@ -21,6 +21,14 @@ import { setLastOutput, setTimeTakenToPredict } from "../../store/actions";
 const Output = () => {
   const lastOuput = useModelSpaceStore((state) => state.lastOutput);
 
+  if (!lastOuput.isFetching && !lastOuput.error && !lastOuput.response) {
+    return (
+      <div className="flex h-full w-full flex-col items-center justify-center">
+        <TypographyP>Output will be rendered here.</TypographyP>
+      </div>
+    );
+  }
+
   if (lastOuput.isFetching) {
     return (
       <div className="flex h-full w-full flex-col items-center justify-center">
@@ -44,7 +52,7 @@ const Output = () => {
   if (typeof output === "string") {
     if (isValidHttpUrl(output)) {
       return (
-        <div className="relative h-full w-full">
+        <div className="relative min-h-[40vh] lg:min-h-0 h-full w-full">
           <Image
             alt={"Prediction image"}
             src={output}
@@ -120,7 +128,7 @@ const ModelOutput = () => {
           <Separator />
           <div className="">
             <b>Time taken: </b>
-            {timeTakenToPredict.toFixed(3)} ms
+            {(timeTakenToPredict / 1000).toFixed(3)} seconds
           </div>
         </>
       ) : null}
